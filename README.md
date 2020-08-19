@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Placeholder for the TM working group
 
 You can use the [editor on GitHub](https://github.com/Threat-Modeling-Manifesto/threat-modeling-manifesto/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
