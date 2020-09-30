@@ -1,0 +1,24 @@
+Website:
+Rough layout:
+The Manifesto itself
+- Values
+- Principals
+
+Contributors as another page
+Link to CC license
+Must be Framework based (Bootstrap?)
+
+
+Logo:
+- Threat Modeling has to do with security and with software development
+- Identifying problems
+- Modeling complex systems
+- Whiteboard
+- Diagrams
+- Geometric shapes
+- Data Flow Diagram, examples: https://github.com/OWASP/threat-model-cookbook/blob/master/INDEX.md
+- A manifesto is a declaration
+
+Requirements:
+- Simple and clear
+- No padlocks, no typical "cyber" look, no fire-arms, no badges
