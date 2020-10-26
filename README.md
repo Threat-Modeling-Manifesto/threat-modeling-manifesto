@@ -8,6 +8,11 @@ This is a repository for the website [www.threatmodelingmanifesto.org](https://w
 
 See [LICENSE.txt](LICENSE.txt) for details.
 
+### Releases
+A PDF document will be provided as a release mechanism.
+
+Contributors: please tag the index.html file you're making a release from.
+
 
 ### Contact
 
