@@ -1,6 +1,17 @@
 <!doctype html>
 <html lang="en">
-<head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Threat Modeling Manifesto</title>
+	
+<meta property="og:title" content="Threat Modeling Manifesto" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.threatmodelingmanifesto.org/" />
+<meta property="og:image" content="https://www.threatmodelingmanifesto.org/tm-manifesto-med.svg" />
+<meta property="og:og:description" content="The Threat Modeling Manifesto documents the values, principles and key characteristics as an industry guidance for conducting threat modeling." />
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0019LP0V4Z"></script>
 <script>
@@ -10,11 +21,282 @@
 
   gtag('config', 'G-0019LP0V4Z');
 </script>
-</head>
-<body>
 
-<h1>Threat Modeling Manifesto</h1>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css">
 
-</body>
+<!-- Favicon from realfavicongenerator.net -->
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+<link rel="manifest" href="/favicons/site.webmanifest">
+<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#f15b2b">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
 
+<style>
+@import url(https://fonts.googleapis.com/css?family=Poppins:400,500,700);
+
+  .bd-placeholder-img {
+	font-size: 1.125rem;
+	text-anchor: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+  }
+
+  @media (min-width: 768px) {
+	.bd-placeholder-img-lg {
+	  font-size: 3.5rem;
+	}
+  }
+  
+  section:before {
+    height: 5em;
+    content: "";
+    display:block;
+  }
+  
+  /*
+  section#about:after {
+    content: "";
+    display:block;  
+  }
+  */
+  
+  .bg-dark {
+	/* #52 */
+	background-color: #241F21!important; 
+  }
+  
+  /*
+  #antipatterns .card {
+	width: 16rem;
+	min-height: 10rem;
+  }
+ */
+
+	#patterns .card, #antipatterns .card {
+		min-width: 16rem;
+		border: 1px solid;
+		border-radius: .25rem;
+	}
+
+	/* navbar-top-fixed.css - Show it is fixed to the top */
+	body {
+		min-height: 75rem;
+		padding-top: 4.5rem;
+	}
+	
+	.footnote {
+		white-space: nowrap;
+		text-decoration-line: underline;
+		text-decoration-style: dotted;
+		text-decoration-color: rgba(0, 0, 0, 0.5);
+		color: #212529;
+	}
+	.footnote:hover {
+		cursor: help;
+		white-space: nowrap;
+		text-decoration-line: underline;
+		text-decoration-style: dotted;
+		text-decoration-color: rgba(0, 0, 0, 0.5);
+		color: #212529;
+	}
+	
+	
+	.logospacing {
+		margin-right: 10px;
+	}
+	
+	.mainlogo {
+		margin-bottom: 1em;
+	}
+	
+	.navbar {
+		font-family: Poppins,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+		font-size: 18px;
+		font-weight: 500;
+		z-index: 2000;
+	}
+	
+	@media print {
+		html, body {
+			height: 99%;    
+		}
+		.noprint {
+			display: none;
+		}
+		a {
+			text-decoration: none!important;
+			color: black;
+		}
+		.shadow {
+			-webkit-box-shadow: none!important;
+			-moz-box-shadow:    none!important;
+			box-shadow:         none!important; 
+		}
+
+		@page :first {
+			margin-top: 0;
+		}
+	}
+	
+	.introline {
+		font-weight: 600;
+	}
+	
+	h3 {
+		margin-top: 1em;
+	}
+	
+	h3:first-of-type {
+		margin-top: 0em;
+	}
+	
+	
+</style>
+  </head>
+  <body>
+    <nav style="" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"><img src="tm-manifesto-logo.svg" height="40" class="logospacing d-none d-md-inline" alt="Threat Modeling Manifesto Image Logo" />
+  <a id="toplink" class="navbar-brand" href="#" style="">Threat Modeling Manifesto</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#values">Values</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#principles">Principles</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#about">About</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<main role="main" class="container">
+<img src="tm-manifesto-large.svg" class="mainlogo img-fluid d-none d-sm-block" alt="Threat Modeling Manifesto Wide Screen Logo" />
+<img src="tm-manifesto-med.svg" class="mainlogo img-fluid d-block d-sm-none" alt="Threat Modeling Manifesto Narrow Screen Logo" />
+
+  <div class="jumbotron py-4 shadow">
+	
+	<h3>Test</h3>
+	<p>Release at 11PM PST.</p>
+	
+  </div>
+
+<section id="values">
+  <div class="jumbotron py-4 shadow">
+    <h1>Values</h1>
+  </div>
+</section>
+
+<section id="principles">
+  <div class="jumbotron py-4 shadow">
+    <h1>Principles</h1>	
+</div>
+
+</section>
+
+<section id="about" class="min-vh-100" style="page-break-before: always;">
+  <div class="jumbotron py-4 shadow">
+    <h1>About</h1>
+  </div>
+</section>
+
+</main>
+<script src="jquery-3.5.1.slim.min.js"></script>
+<script src="popper.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<script>
+function getHash() {
+	var h = window.location.hash;
+	
+	// after all we think about threats... ;-)
+	switch (h) {
+		// this need to be acceptable values for the menu or direct links
+		case '#values':
+		case '#principles':
+		case '#about':
+			return h;
+	}
+	
+	return '';
+}
+
+$(function() {
+
+
+	$(window).resize(function() {
+		var h = getHash();
+		if (h) {
+			$(h)[0].scrollIntoView();
+		}
+	});
+
+	$(function() {
+		var h = getHash();
+		if (h) {
+			$("a[href='"+h+"'").addClass('active');
+		}
+	});
+	
+	$(window).on('popstate', function() {
+		var h = getHash();
+		$('.nav-link').removeClass("active");
+		if (h) {
+			$("a[href='"+h+"'").addClass('active');
+		}
+	});
+
+	$('#toplink').click( function(e) {
+		e.preventDefault();
+		window.location.hash = '#';
+		history.replaceState('', document.title, window.location.pathname + window.location.search);
+		$('#navbarCollapse').collapse('hide');
+		$('.nav-link').removeClass("active");
+		//$('#toplink').css('color', 'rgba(255,255,255)');
+		return false;
+	});
+
+	$('.nav-link').click( function(e) {
+		$('#navbarCollapse').collapse('hide');
+		$('.nav-link').removeClass("active");
+		//$('#toplink').css('color', 'rgba(255,255,255,.75)');
+		$(this).addClass("active");
+	});
+	
+	$('a.footnote')
+		.attr("data-content", function(e, cur) {
+			var dc = this.title.replace('“', '“<a href="' + this.href + '" target="_blank">');
+			dc = dc.replace('”','</a>”');
+			
+			$(this).attr('data-content', '<span class="close" role="button">&times;</span>' + dc);
+		})
+		.attr('data-toggle','popover')
+		.popover({
+			html: true,
+			trigger: 'focus',
+			placement: 'auto',
+			template: '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>'
+		})
+		.removeAttr("href");
+	
+	$('body').on('mousedown', '.popover a', function(e) {
+		e.preventDefault();
+		//$('[data-toggle="popover"]').delay(1000).popover('hide');
+		//e.target.parentElement.popover('hide');
+	    //window.open(e.target.href, "_blank");
+	});
+	
+});
+</script>
 </html>
