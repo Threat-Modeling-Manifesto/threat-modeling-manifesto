@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
+    <meta name="description" content="The Threat Modeling Manifesto documents the values, principles and key characteristics as an industry guidance for conducting threat modeling.">
     <title>Threat Modeling Manifesto</title>
 	
 <meta property="og:title" content="Threat Modeling Manifesto" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.threatmodelingmanifesto.org/" />
-<meta property="og:image" content="https://www.threatmodelingmanifesto.org/tm-manifesto-med.svg" />
-<meta property="og:og:description" content="The Threat Modeling Manifesto documents the values, principles and key characteristics as an industry guidance for conducting threat modeling." />
+<meta property="og:image" content="https://www.threatmodelingmanifesto.org/tm-manifesto-card.png" />
+<meta property="og:description" content="The Threat Modeling Manifesto documents the values, principles and key characteristics as an industry guidance for conducting threat modeling." />
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0019LP0V4Z"></script>
@@ -122,13 +122,20 @@
 		font-weight: 500;
 		z-index: 2000;
 	}
-	
+
+	.printonly {
+		display: none;
+	}
+
 	@media print {
 		html, body {
 			height: 99%;    
 		}
 		.noprint {
 			display: none;
+		}
+		.printonly {
+			display: block;
 		}
 		a {
 			text-decoration: none!important;
@@ -188,20 +195,140 @@
 
   <div class="jumbotron py-4 shadow">
 	
-	<h3>Test</h3>
-	<p>Release at 11PM PST.</p>
+	<h3>What is threat modeling?</h3>
+	<p>Threat modeling is analyzing representations of a system to highlight concerns about security and privacy characteristics.</p>
+	<p>
+	At the highest levels, when we threat model, we ask <a href="https://github.com/adamshostack/4QuestionFrame" target="_blank" tabindex="1" class="footnote"
+	title="“Shostack's 4 Question Frame for Threat Modeling” by Adam Shostack, a member of the Threat Modeling Manifesto group.">four key questions</a>:
+	</p>
+	<ol>
+	<li>What are we working on?</li>
+	<li>What can go wrong?</li>
+	<li>What are we going to do about it?</li>
+	<li>Did we do a good enough job?</li>
+	</ol>
 	
+	<h3>Why threat model?</h3>
+	<p>When you perform threat modeling, you begin to recognize what can go wrong in a system. It also allows you to pinpoint design and implementation issues that require mitigation, whether it is early in or throughout the lifetime of the system. The output of the threat model, which are known as threats, informs decisions that you might make in subsequent design, development, testing, and post-deployment phases.
+	</p>
+
+	<h3>Who should threat model?</h3>
+	<p>You. Everyone. Anyone who is concerned about the privacy, safety, and security of their system.</p>
+
+	<h3>How should I use the Threat Modeling Manifesto?</h3>
+	<p>Use the Manifesto as a guide to develop or refine a methodology that best fits your needs. We believe that following the guidance in the Manifesto will result in more effective and more productive threat modeling. In turn, this will help you to successfully develop more secure applications, systems, and organizations and protect them from threats to your data and services. The Manifesto contains ideas, but is not a how-to, and is methodology-agnostic.</p>
+	
+	<p>The Threat Modeling Manifesto follows a similar format to that of the <a href="https://agilemanifesto.org/" target="_blank" tabindex="2" class="footnote"
+	title="The “Manifesto for Agile Software Development” created in 2001 identifies software development values and principles, some of which align with this Threat Modeling Manifesto.">Agile Manifesto</a> by identifying the two following guidelines:</p>
+	<ul><li><strong>Values</strong>: A value in threat modeling is something that has relative worth, merit, or importance. That is, while there is value in the items on the right, we value the items on the left more.</li>
+	<li><strong>Principles</strong>: A principle describes the fundamental truths of threat modeling. There are three types of principles: (i) fundamental, primary, or general truths that enable successful threat modeling, (ii) patterns that are highly recommended, and (iii) anti-patterns that should be avoided.</li>
+	</ul>
   </div>
 
 <section id="values">
   <div class="jumbotron py-4 shadow">
     <h1>Values</h1>
+	<p class="introline">We have come to value:</p>
+	<ul class="lead">
+		<li><strong>A culture of finding and fixing design issues</strong> <small>over checkbox compliance.</small></li>
+		<li><strong>People and collaboration</strong> <small>over processes, methodologies, and tools.</small></li>
+		<li><strong>A journey of understanding</strong> <small>over a security or privacy snapshot.</small></li>
+		<li><strong>Doing threat modeling</strong> <small>over talking about it.</small></li>
+		<li><strong>Continuous refinement</strong> <small>over a single delivery.</small></li>
+	</ul>
   </div>
 </section>
 
 <section id="principles">
   <div class="jumbotron py-4 shadow">
-    <h1>Principles</h1>	
+    <h1>Principles</h1>
+	<p class="introline">We follow these principles:</p>
+	<ul class="lead">
+		<li><strong>The best use of threat modeling is to improve the security and privacy of a system through early and frequent analysis.</strong></li>
+		<li><strong>Threat modeling must align with an organization’s development practices and follow design changes in iterations that are each scoped to manageable portions of the system.</strong></li>
+		<li><strong>The outcomes of threat modeling are meaningful when they are of value to stakeholders.</strong></li>
+		<li><strong>Dialog is key to establishing the common understandings that lead to value, while documents record those understandings, and enable measurement.</strong></li>
+	</ul>
+	<p class="introline">These patterns benefit threat modeling:</p>
+<div id="patterns" class="card-group">
+
+<div class="card mb-3 mr-3 border-success">
+  <div class="card-body">
+    <h5 class="card-header text-success">Systematic Approach</h5>
+    <p class="card-text">Achieve thoroughness and reproducibility by applying security and privacy knowledge in a structured manner.</p>
+  </div>
+</div>
+
+<div class="card mb-3 mr-3 border-success">
+  <div class="card-body">
+    <h5 class="card-header text-success">Informed Creativity</h5>
+    <p class="card-text">Allow for creativity by including both craft and science.</p>
+  </div>
+</div>
+  
+
+
+ 
+<div class="card mb-3 mr-3 border-success">
+  <div class="card-body">
+    <h5 class="card-header text-success">Varied Viewpoints</h5>
+    <p class="card-text">Assemble a diverse team with appropriate subject matter experts and cross-functional collaboration.</p>
+  </div>
+</div>
+
+<div class="card mb-3 mr-3 border-success">
+  <div class="card-body">
+    <h5 class="card-header text-success">Useful Toolkit</h5>
+    <p class="card-text">Support your approach with tools that allow you to increase your  productivity, enhance your workflows, enable repeatability and provide measurability.</p>
+  </div>
+</div>
+
+<div class="card mb-3 mr-3 border-success">
+  <div class="card-body">
+    <h5 class="card-header text-success">Theory into Practice</h5>
+    <p class="card-text">Use successfully field-tested techniques aligned to local needs, and that are informed by the latest thinking on the benefits and limits of those techniques.</p>
+  </div>
+</div>		 
+
+
+</div>
+
+
+<p></p>
+	<p class="introline">These anti-patterns inhibit threat modeling:</p>
+<div id="antipatterns" class="card-group">
+
+	<div class="card mb-3 mr-3 border-danger">
+	  <div class="card-body">
+		<h5 class="card-header text-danger">Hero Threat Modeler</h5>
+		<p class="card-text">Threat modeling does not depend on one’s innate ability or unique mindset; everyone can and should do it.</p>
+	  </div>
+	</div>
+
+	<div class="card mb-3 mr-3 border-danger">
+	  <div class="card-body">
+		<h5 class="card-header text-danger">Admiration for the Problem</h5>
+		<p class="card-text">Go beyond just analyzing the problem; reach for practical and relevant solutions.</p>
+	  </div>
+	</div>
+
+	<div class="card mb-3 mr-3 border-danger">
+	  <!-- <img src="..." class="card-img-top" alt="..."> -->
+	  <div class="card-body">
+		<h5 class="card-header text-danger">Tendency to Overfocus</h5>
+		<p class="card-text">Do not lose sight of the big picture, as parts of a model may be interdependent. Avoid exaggerating attention on adversaries, assets, or techniques.</p>
+	  </div>
+	</div>
+
+	<div class="card mb-3 mr-3 border-danger">
+	  <!-- <img src="..." class="card-img-top" alt="..."> -->
+	  <div class="card-body">
+		<h5 class="card-header text-danger">Perfect Representation</h5>
+		<p class="card-text">It is better to create multiple threat modeling representations because there is no single ideal view, and additional representations may illuminate different problems.</p>
+	  </div>
+	</div>
+
+	
 </div>
 
 </section>
@@ -209,6 +336,41 @@
 <section id="about" class="min-vh-100" style="page-break-before: always;">
   <div class="jumbotron py-4 shadow">
     <h1>About</h1>
+
+	<p>Our intention for the Threat Modeling Manifesto is to share a distilled version of our collective threat modeling knowledge in a way that should inform, educate, and inspire other practitioners to adopt threat modeling as well as improve security and privacy during development.</p>
+	<p>We developed this Manifesto after years of experience thinking about, performing, teaching, and developing the practice of, Threat Modeling. We have diverse backgrounds as industry professionals, academics, authors, hands-on experts, and presenters. We bring together varied perspectives on threat modeling. Our ongoing conversations, which focus on the conditions and approaches that lead to the best results in threat modeling, as well as how to correct when we fail, continue to shape our ideas.</p>
+	
+	<p class="noprint">We provide a <a href="https://github.com/Threat-Modeling-Manifesto/threat-modeling-manifesto/releases/latest/download/threat-modeling-manifesto.pdf">PDF version</a> of the manifesto and this website is also <a href="javascript:window.print();">print friendly</a>.</a></p>
+
+	<p class="printonly">You can always find the current version of this manifesto at <a href="https://www.threatmodelingmanifesto.org/">https://www.threatmodelingmanifesto.org/</a>.</p>
+	
+	<p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+		
+	<h3>Authors</h3>
+	<p>The working group of the Threat Modeling Manifesto consists of individuals with years of experience threat modeling for security or privacy.
+	<ul class="lead">
+		<!-- in reverse order of 28 rounds of sha256 of full names ;-) --> 
+		<li><a href="https://twitter.com/zbraiterman" target="_blank">Zoe Braiterman</a></li>
+		<li><a href="https://adam.shostack.org/" target="_blank">Adam Shostack</a></li>
+		<li><a href="https://twitter.com/jonathanmarcil" target="_blank">Jonathan Marcil</a></li>
+		<li><a href="https://iriusrisk.com/" target="_blank">Stephen de Vries</a></li>
+		<li><a href="https://twitter.com/IreneMichlin" target="_blank">Irene Michlin</a></li>
+		<li><a href="https://twitter.com/wuytski" target="_blank">Kim Wuyts</li>
+		<li><a href="https://twitter.com/RobertHurlbut" target="_blank">Robert Hurlbut</a></li>
+		<li><a href="https://twitter.com/BrkSchoenfield" target="_blank">Brook S.E. Schoenfield</a></li>
+		<li><a href="https://twitter.com/zeroXten" target="_blank">Fraser Scott</a></li>
+		<li><a href="https://twitter.com/coles_matthewj" target="_blank">Matthew Coles</a></li>
+		<li><a href="https://www.securityjourney.com" target="_blank">Chris Romeo</a></li>
+		<li><a href="https://twitter.com/AlyssaM_InfoSec" target="_blank">Alyssa Miller</a></li>
+		<li><a href="https://twitter.com/izar_t" target="_blank">Izar Tarandach</a></li>
+		<li><a href="https://twitter.com/sec_tigger" target="_blank">Avi Douglen</a></li>
+		<li><a href="https://twitter.com/appsecdude" target="_blank">Marc French</a></li>
+		<!-- Everyone in a list: https://twitter.com/i/lists/1320580732327137280 -->
+	</ul>
+	</p>
+	
+	<p>The working group would like to thank Loren Kohnfelder and Sheila Kamath for their technical edit review and expert feedback on the document content and structure.</p>
+	
   </div>
 </section>
 
