@@ -11,7 +11,7 @@ See [LICENSE.txt](LICENSE.txt) for details.
 ### Releases
 A PDF document will be provided as a release mechanism. It can be fetched using [this URL](https://github.com/Threat-Modeling-Manifesto/threat-modeling-manifesto/releases/latest/download/threat-modeling-manifesto.pdf).
 
-Please [create a release](releases/new) and upload the print version of the website in `threat-modeling-manifesto.pdf` as a binary attached file. Tag accordingly.
+Please [create a release](https://github.com/Threat-Modeling-Manifesto/threat-modeling-manifesto/releases/new) and upload the print version of the website in `threat-modeling-manifesto.pdf` as a binary attached file. Tag accordingly.
 
 
 ### Contact
