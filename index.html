@@ -430,11 +430,16 @@ function getHash() {
 
 $(function() {
 
-
-	$(window).resize(function() {
+	let resizeTimer;
+	$(window).on('orientationchange', function(event) {
+		//console.log('Device is changing orientation');
 		var h = getHash();
 		if (h) {
-			$(h)[0].scrollIntoView();
+			//console.log('scrolling into view..');
+			clearTimeout(resizeTimer);
+			resizeTimer = setTimeout(function() {
+				$(h)[0].scrollIntoView();
+			}, 200);
 		}
 	});
 
