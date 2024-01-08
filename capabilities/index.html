@@ -150,7 +150,6 @@
 		@page :first {
 			margin-top: 0;
 		}
-		
 		section:before {
 			height: 0em;
 			content: "";
@@ -538,7 +537,7 @@
 </div>
 </section>
 
-<section id="about" class="min-vh-100" style="page-break-before: always;">
+<section id="about" style="page-break-before: always;">
   <div class="jumbotron py-4 shadow">
     <h1>About</h1>
 
@@ -590,6 +589,24 @@
   </div>
 </section>
 
+<section id="definitions" class="printonly" style="page-break-before: always;">
+  <div class="printonly jumbotron py-4 shadow">
+    <h1>Definitions</h1>
+	<p>On the web version of this document, we have tooltips on many words to notate the text. Here's a table with all those notes in order of appearance.</p>
+	<table id="definitions-table" class="table">
+	  <thead>
+		<tr>
+		  <th scope="col">Word(s)</th>
+		  <th scope="col">Meaning</th>
+		</tr>
+	  </thead>
+	  <tbody>
+	  
+	  </tbody>
+	</table>
+  </div>
+</section>
+
 </main>
 <script src="../jquery-3.5.1.slim.min.js"></script>
 <script src="../popper.min.js"></script>
@@ -608,11 +625,30 @@ function getHash() {
 		case '#communications':
 		case '#measurement':
 		case '#program':
+		case '#about':
 		case '#authors':
 			return h;
 	}
 	
 	return '';
+}
+
+function fillDefTable() {
+	var tbody = $('#definitions-table > tbody');
+
+	$('.footnote').each(function() {
+		var title = $(this).attr('title');
+		title = title.replace('“','“<i>').replace('”','</i>”');
+		var href = $(this).attr("href");
+		if (!href.startsWith('#')) {
+			title = title.replace('</a>','</a> <small>['+href+']</small>');
+		}
+		
+		var text = $(this).text();
+		text = text[0].toUpperCase() + text.slice(1);
+		tbody.append('<tr><td>' + text + '</td><td>' +
+			title + '</td></tr>');
+	});
 }
 
 $(function() {
@@ -663,6 +699,7 @@ $(function() {
 		$(this).addClass("active");
 	});
 	
+	fillDefTable();
 	$('a.footnote')
 		.attr("data-content", function(e, cur) {
 			var dc = this.title.replace('<a>', '<a href="' + this.href + '"' + ($(this).attr('href').startsWith('#') ? '':' target="_blank"') + '>');
@@ -678,7 +715,6 @@ $(function() {
 			template: '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>'
 		})
 		.removeAttr("href");
-
 	$('body').on('mousedown', '.popover a', function(e) {
 		e.preventDefault();
 		//$('[data-toggle="popover"]').delay(1000).popover('hide');
