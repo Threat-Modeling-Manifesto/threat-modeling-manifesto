@@ -73,10 +73,16 @@
 	background-color: #241F21!important; 
   }
   
-	#patterns .card, #antipatterns .card {
+	.card {
 		min-width: 16rem;
-		border: 1px solid;
+		border-width: 1px !important;
+		border-style: solid !important;
 		border-radius: .25rem;
+	}
+	
+	.card-header {
+		white-space: nowrap;
+		text-align: center;
 	}
 
 	/* navbar-top-fixed.css - Show it is fixed to the top */
@@ -123,7 +129,7 @@
 
 	@media print {
 		html, body {
-			height: 99%;    
+      height:100vh; 
 		}
 		.noprint {
 			display: none;
@@ -144,6 +150,24 @@
 		@page :first {
 			margin-top: 0;
 		}
+		
+		section:before {
+			height: 0em;
+			content: "";
+			display:block;
+		}
+		#strategy {
+			page-break-before: always;
+		}
+		#creating {
+			page-break-before: always;
+		}
+		#acting {
+			page-break-before: always;
+		}
+		#measurement {
+			page-break-before: always;
+		}
 	}
 	
 	.introline {
@@ -152,6 +176,7 @@
 	
 	h3 {
 		margin-top: 1em;
+		scroll-margin-top: 3em;
 	}
 	
 	h3:first-of-type {
@@ -207,20 +232,20 @@
 
   <div class="jumbotron py-4 shadow">
 
-	<p class="introline">Threat Modeling is critical to achieving design goals for system security and data privacy.</p>
+	<p class="introline"><a href="https://www.threatmodelingmanifesto.org/" tabindex="1" class="footnote" title="“Threat modeling is analyzing representations of a system to highlight concerns about security and privacy characteristics” as defined in the <a>Threat Modeling Manifesto</a>.">Threat Modeling</a> is critical to achieving design goals for system security and data privacy.</p>
 	
 	<p>This document provides a catalog of capabilities to help you cultivate value from your Threat Modeling practice.</p>
 
-	<p>We are the <a href="#authors" tabindex="1" class="footnote"
+	<p>We are the <a href="#authors" tabindex="2" class="footnote"
 	title="Our original team from the Manifesto back in 2020 got some new welcomed additions in 2023. See <a>Authors</a> for the current list.">team</a> behind the <a href="https://www.threatmodelingmanifesto.org/" target="_blank">Threat Modeling Manifesto</a>. We have combined our collective experience in  a conscious effort toward group consensus to create this document.</p>
 	<p>We have identified the following threat modeling capabilities to help you create or refine a roadmap for your threat modeling program and understand where your program is.</p>
 	<p>We feel that organizations that implement these capabilities will meet their secure design objectives and avoid many pitfalls and challenges when performing threat modeling.</p>
 
 
 	<h3>What is a threat modeling capability?</h3>
-	<p>A capability delineates what an organization does. Capabilities <a href="https://pubs.opengroup.org/togaf-standard/business-architecture/business-capabilities.html#_Toc95135878" tabindex="2" class="footnote" title="We paraphrase <a>The Open Group definition of a business capability</a>: “[A] business capability delineates what a business does without attempting to explain how, why, or where the business uses the capability.”">do not attempt</a> to explain how, why, or where they are used.</p>
+	<p>A capability delineates what an organization does. Capabilities <a href="https://pubs.opengroup.org/togaf-standard/business-architecture/business-capabilities.html#_Toc95135878" tabindex="3" class="footnote" title="We paraphrase <a>The Open Group definition of a business capability</a>: “[A] business capability delineates what a business does without attempting to explain how, why, or where the business uses the capability.”">do not attempt</a> to explain how, why, or where they are used.</p>
 
-	<p>Where you start the threat modeling process depends on <a href="#" tabindex="3" class="footnote" title="Your organization could be a single team, a department, a division, a company, whatever grouping that works together towards a common goal.">your organization</a>. Note that implementing capabilities is typically not a linear process. Some capabilities are easier for some organizations to implement, while others are harder. Start by understanding your circumstances, biggest problems, and best and most cost effective opportunities.</p>
+	<p>Where you start the threat modeling process depends on <a href="#" tabindex="4" class="footnote" title="Your organization could be a single team, a department, a division, a company, whatever grouping that works together towards a common goal.">your organization</a>. Note that implementing capabilities is typically not a linear process. Some capabilities are easier for some organizations to implement, while others are harder. Start by understanding your circumstances, biggest problems, and best and most cost effective opportunities.</p>
 
 	<p>This document serves as a catalog of capabilities; use them as Lego pieces to help you build a threat modeling program. Although these capabilities are very simple, the more of them you implement, the better your program becomes.</p>
 
@@ -231,7 +256,7 @@
 <section id="capabilities">
   <div class="jumbotron py-4 shadow">
     <h1>Capabilities</h1>
-	<p class="introline">We have grouped <a href="https://pubs.opengroup.org/togaf-standard/business-architecture/business-capabilities.html#_Toc95135878" tabindex="4" class="footnote" title="A capability is something you do or do not have.<br/><br/>Capabilities are measurable and useful with provable actions or objectives. Their description does not contain instructions on exactly how or why it is applied.<br/><br/>While we are inspired by “an ability to do something” from <a>The Open Group Business Capabilities</a>, we prefer a term that also includes something that is happening and is not limited to an ability.">capabilities</a> into the following seven process areas:
+	<p class="introline">We have grouped <a href="https://pubs.opengroup.org/togaf-standard/business-architecture/business-capabilities.html#_Toc95135878" tabindex="5" class="footnote" title="A capability is something you do or do not have.<br/><br/>Capabilities are measurable and useful with provable actions or objectives. Their description does not contain instructions on exactly how or why it is applied.<br/><br/>While we are inspired by “an ability to do something” from <a>The Open Group Business Capabilities</a>, we prefer a term that also includes something that is happening and is not limited to an ability.">capabilities</a> into the following seven process areas:
 		<ul class="lead">
 			<li>Strategy</li>
 			<li>Education</li>
@@ -246,32 +271,269 @@
 
 	<p>Each process area introduces a common objective. Capabilities are practical stepping-stones towards these goals.</p>
 	
-	<h3 class="mt-5">Strategy</h3>
-	<p>Threat modeling is an organization-wide practice differentiating from the anti-pattern of <a href="https://www.threatmodelingmanifesto.org/#antipatterns" tabindex="5" class="footnote" title="“Threat modeling does not depend on one’s innate ability or unique mindset; everyone can and should do it” is an anti-pattern from the <a>Threat Modeling Manifesto</a> where a single individual performs all threat modeling actions limited by their own specific experiences, agendas, and biases.">hero threat modelers</a>. Strategy should prioritize and highlight the importance of threat modeling.</p>
-<div id="antipatterns" class="card-group">
-
-	<div class="card mb-3 mr-3 border-danger">
+	<h3 id="strategy" class="mt-5">Strategy</h3>
+	<p>Threat modeling is an organization-wide practice differentiating from the anti-pattern of <a href="https://www.threatmodelingmanifesto.org/#antipatterns" tabindex="6" class="footnote" title="“Threat modeling does not depend on one’s innate ability or unique mindset; everyone can and should do it” is an anti-pattern from the <a>Threat Modeling Manifesto</a> where a single individual performs all threat modeling actions limited by their own specific experiences, agendas, and biases.">hero threat modelers</a>. Strategy should prioritize and highlight the importance of threat modeling.</p>
+<div class="card-group">
+	<div class="card mb-3 mr-3 border-info">
 	  <div class="card-body">
-		<h5 class="card-header text-danger">EXECUTION GOVERNANCE</h5>
+		<h5 class="card-header">Execution Governance</h5>
 		<p class="card-text">Documentation exists requiring or mandating that threat modeling occur. Actions are taken by leadership to encourage threat modeling. Goals are set to ensure proper analysis of threat models.</p>
 	  </div>
 	</div>
-
-	<div class="card mb-3 mr-3 border-danger">
+	<div class="card mb-3 mr-3 border-info">
 	  <div class="card-body">
-		<h5 class="card-header text-danger">LIFE CYCLE INTEGRATION</h5>
-		<p class="card-text">Threat modeling is incorporated into organizational processes such as the development life cycle or an SDLC and is a prerequisite for critical life cycle phases.</p>
+		<h5 class="card-header">Life Cycle Integration</h5>
+		<p class="card-text">Threat modeling is incorporated into organizational processes such as the development life cycle or an <a href="#" tabindex="7" class="footnote" title="Our usage of SDLC in this document is not limited to Software Development Life Cycle but also can be used for the life cycle of a product, application, or system.">SDLC</a> and is a prerequisite for critical life cycle phases.</p>
 	  </div>
 	</div>
-
-	<div class="card mb-3 mr-3 border-danger">
+	<div class="card mb-3 mr-3 border-info">
 	  <div class="card-body">
-		<h5 class="card-header text-danger">RESOURCE ALLOCATION</h5>
+		<h5 class="card-header">Resource Allocation</h5>
 		<p class="card-text">Teams commit the appropriate amount of time, people, and money to perform threat modeling.</p>
 	  </div>
 	</div>
-
 </div>
+
+	<h3 id="education" class="mt-5">Education</h3>
+	<p>People should learn how to perform threat modeling according to the Values and Principles of the <a href="https://www.threatmodelingmanifesto.org/#values">Threat Modeling Manifesto</a>. “<i>A journey of understanding over a security or privacy snapshot</i>” requires that learning provides ongoing support to participants in threat modeling. <a href="#" tabindex="8" class="footnote" title="We recognize training is effective either in-person or using remote facilitation techniques.">Training</a> is available easily and always for anyone who wants to learn.</p>
+<div class="card-group">
+	<div class="card mb-3 mr-3 border-primary">
+	  <div class="card-body">
+		<h5 class="card-header">Training Assignment</h5>
+		<p class="card-text">Threat modeling training is part of the organization’s curriculum. <a href="#" tabindex="9" class="footnote" title="People or groups who are part of a RACI (responsible, accountable, consulted, and informed) matrix that is related to creation, consumption or decision making about threat modeling and its results.">Stakeholders</a> assign resources so that everyone in their organization can learn.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-primary">
+	  <div class="card-body">
+		<h5 class="card-header">Adaptive Learning</h5>
+		<p class="card-text">Role-based training presents information and instruction based on the job responsibilities of each individual.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-primary">
+	  <div class="card-body">
+		<h5 class="card-header">Active Practice</h5>
+		<p class="card-text">Practitioners use <a href="#" tabindex="10" class="footnote" title="Learning through direct experience and observation, rather than just reading or listening about a topic. It can include activities such as simulations, role-playing and other experiments. It allows individuals to actively engage with the subject matter, leading to a deeper understanding and retention of information.">experiential learning</a> to develop threat modeling skills by performing hands-on threat modeling.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-primary">
+	  <div class="card-body">
+		<h5 class="card-header">Execution Support</h5>
+		<p class="card-text">A support structure is in place to strengthen the performance of threat modeling. Examples include providing mentoring, coaching, or peer-to-peer insights. <a href="#" tabindex="11" class="footnote" title="The group implementing, creating or modifying the target software, product or system.">Developers</a> are encouraged to learn about security and privacy concepts.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-primary">
+	  <div class="card-body">
+		<h5 class="card-header">Convention Alignment</h5>
+		<p class="card-text">Training is informed by and reflects organizational practice and customs factors such as how to threat model; tools used; how to get support; what success looks like. Infuse locality of organizational culture into threat modeling.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-primary">
+	  <div class="card-body">
+		<h5 class="card-header">Continuing Education</h5>
+		<p class="card-text">People are encouraged and supported in becoming aware of new classes of threats; manifestations of threats; threat actors; new security features of their environment and how to best apply them. New information is put into an accessible and up-to-date form for participants to evolve their threat modeling skills.</p>
+	  </div>
+	</div>
+</div>
+
+	<h3 id="creating" class="mt-5">Creating threat models</h3>
+	<p>Ideally, threat modeling occurs at the beginning where ideas take form, but may occur at any time during a system’s life cycle. The threat model creation process is<a href="#" tabindex="12" class="footnote" title="An effective threat model creation process has collaborative and engaging meetings. If you can replace it with an email, its effectiveness is questionable.">effective</a> according to the organization.</p>
+<div class="card-group">
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Experience Availability</h5>
+		<p class="card-text">Practitioners with proven threat modeling experience and <a href="#" tabindex="13" class="footnote" title="Individuals who use their expertise to help, guide, or mentor others in execution of a process.">process facilitators</a> are either part of the process or available to the team.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Fostering Participation</h5>
+		<p class="card-text">Support mechanisms are in place to encourage and improve threat modeling practices. The organization facilitates diversity of people’s job functions through inclusive threat modeling participation.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Shared Responsibility</h5>
+		<p class="card-text">All teams own and are <a href="#" tabindex="14" class="footnote" title="Accountability can be structured similarly to code base where every repository has one team owning it. Responsible parties are expected to answer for the security of what they create.">accountable</a> for doing threat modeling. Threat modeling might include the team that implements the system/feature and with the help of a facilitator.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Active Collaboration</h5>
+		<p class="card-text">The organization creates a blame-free threat modeling activity where teams are working <a href="#" tabindex="15" class="footnote" title="In the context of collaboration within the same team as a cohesive unit, as opposed to team-to-team.">together</a> and <a href="#" tabindex="16" class="footnote" title="In the context of collaboration between different teams, as opposed to within the same team.">with others</a> to form a <a href="https://www.threatmodelingmanifesto.org/#values" tabindex="17" class="footnote" title="A culture that supports “People and collaboration over processes, methodologies, and tools” as seen in the <a>Threat Modeling Manifesto Values</a>.">culture of collaboration</a>. Everyone is actively participating and listening in a non-adversarial manner.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Portfolio Prioritization</h5>
+		<p class="card-text">Organizations evaluate all of their <a href="#" tabindex="18" class="footnote" title="Systems that are in the state of being developed, deployed, tested, under review, or part of an assessment.">in-scope</a> systems to decide in which order to execute threat modeling.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">System and Threat <br/>Comprehension</h5>
+		<p class="card-text">Analysis, as part of the creation process, is informed by ingesting system architecture. Conclusions are enriched by utilizing outside threat knowledge.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Pattern Cataloging</h5>
+		<p class="card-text"><a href="#" tabindex="19" class="footnote" title="Related to a single application, or a collection of systems or components that solve business cases or needs.">Product-specific</a> threats and mitigations are identified and reused. Emerging knowledge is considered in later rounds to refine the threat modeling process.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Format Consistency</h5>
+		<p class="card-text">The organization promotes uniformity of threat models. Predefined templates of threat models can be used to ensure completeness.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Continuous Changes</h5>
+		<p class="card-text">Threat modeling is iterative, and changes to the system or its environment trigger analysis of previous threats and mitigations.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Change Control</h5>
+		<p class="card-text">Threat models are versioned to maintain a historical record.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Threat Model <br/>Distribution</h5>
+		<p class="card-text">The organization provides a mechanism for sharing and discovering threat models. Access to threat models should be available to relevant stakeholders. Optionally, threat models are shared with other teams, organization-wide, or externally.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Tool Assisted Process</h5>
+		<p class="card-text">Tools are integrated into processes to support the generation of threats, countermeasures, or diagrams. They can either produce new documents or add to existing ones. More capable tools can be used for advanced system modeling and threat elicitation.</p>
+	  </div>
+	</div>
+</div>
+
+	<h3 id="acting" class="mt-5">Acting on threat models</h3>
+	<p>Once a threat model is complete, follow up on the threat model process to address the findings.</p>
+<div class="card-group">
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Definition of Done</h5>
+		<p class="card-text">Criteria exist to indicate when threat modeling outputs have met objectives for security and privacy.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Seamless Alignment</h5>
+		<p class="card-text">Threat modeling <a href="#" tabindex="20" class="footnote" title="Outcomes from threat modeling can include: model(s) such as Data Flow Diagram or Attack Tree with notes or annotations, enumeration of threats and mitigations, results of analysis, action items related to vulnerability or risk management.">outcomes</a> influence the implementation or operational workflows. For example, guiding testing in the SDLC.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Baseline Improvement</h5>
+		<p class="card-text">The organization uses metrics to identify ways to enhance outcomes in the next round.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Risk Management</h5>
+		<p class="card-text">Teams use threat modeling to understand and appropriately quantify risk. The organization uses threat modeling to inform and adapt its risk profile. Some organizations have separate risk management processes that can potentially be informed by threat modeling.</p>
+	  </div>
+	</div>
+</div>
+
+	<h3 id="communications" class="mt-5">Communications</h3>
+	<p>Threat modeling requirements, progress, measurements, and impact are communicated to stakeholders and decision makers. Productive discussions occur amongst threat modeling people.</p>
+<div class="card-group">
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Positive Reinforcement</h5>
+		<p class="card-text">Value propositions based on threat modeling outcomes are communicated to leadership, stakeholders, and participants. The organization celebrates <a href="#" tabindex="21" class="footnote" title="Positive value change in systems or new knowledge obtained by stakeholders.">successes</a> in threat modeling and learns from failures.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Seamless Alignment</h5>
+		<p class="card-text">Foster influence and communication, active listening, and collaboration skills. Threat modeling facilitators learn and practice these <a href="#" tabindex="22" class="footnote" title="Soft-skills, or human-oriented skills, are the ability to communicate with various technical and non-technical audiences, perform negotiation, and influence without authority. It extends to written or oral communication.">soft skills</a> to ensure favorable acceptance and performance of threat modeling.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Feedback Collection</h5>
+		<p class="card-text">The organization is receptive to and proactively supports input from stakeholders at each step of the threat modeling program.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Constructive Conversations</h5>
+		<p class="card-text">The organization facilitates peer-to-peer collaboration and productive dialogue to share knowledge, experiences, frustrations, and encouragement.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Listen To Diverse Viewpoints</h5>
+		<p class="card-text">Ideas from various positions contribute to threat modeling discussions. Internal viewpoints can focus on results and external ones on the method and program.</p>
+	  </div>
+	</div>
+</div>
+
+	<h3 id="measurement" class="mt-5">Measurement</h3>
+	<p>Metrics help determine if threat modeling is effective and meets organizational objectives. Some example indicators might be the effort needed in performing an activity and changes to security and privacy posture.</p>
+<div class="card-group">
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Value Assessment</h5>
+		<p class="card-text">Return on investment compares the effort put into threat modeling against its effectiveness. This valuation can be used to show improvement and consider changes before you move forward.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Status Tracking</h5>
+		<p class="card-text">Dashboards and metrics are used to show the impact of outcomes and invite feedback. These metrics may indicate either progress or regression.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Quantified <br/>Risk Management</h5>
+		<p class="card-text">The organization uses threat modeling generated metrics to understand, measure and complement risk management. </p>
+	  </div>
+	</div>
+</div>
+
+	<h3 id="program" class="mt-5">Program management</h3>
+	<p>As with everything, the organization should not aim for perfection of security and privacy; <a href="#" tabindex="23" class="footnote" title="To achieve goals without being perfect or exceeding them to a point of annoyance.<br/><br/>To do just enough security and privacy to be considered sufficient based on factors such as cost, usability and risk appetite.">“reasonable”</a> is the goal. The program should meet organizational objectives and influence the security and privacy posture. These capabilities focus on defining and managing the program within the organization.</p>
+<div class="card-group">
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Value-Driven <br/>Management</h5>
+		<p class="card-text">The threat modeling program is managed, structured, and defined at an organizational level and provides recognizable value.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Simple Changes</h5>
+		<p class="card-text">The threat modeling program evolves in manageable chunks to provide simplicity and value.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Methodological Openness</h5>
+		<p class="card-text">Threat modeling programs promote <a href="#" tabindex="24" class="footnote" title="The freedom to make use of any approach deemed fit. This works best when selection is done with reasoning and justification rather than arbitrarily.">flexibility</a> in modeling and analysis methods to support different business and technological contexts.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Metrics-Driven <br/>Management</h5>
+		<p class="card-text">Measurement through reporting informs program governance and the threat modeling exercise itself. The adoption of threat modeling capabilities is monitored, and the program is refined accordingly.</p>
+	  </div>
+	</div>
+	<div class="card mb-3 mr-3 border-info">
+	  <div class="card-body">
+		<h5 class="card-header">Collaborative <br/>Program Development</h5>
+		<p class="card-text">The organization internally exchanges knowledge and best practices to nurture a threat model program. <a href="#" tabindex="25" class="footnote" title="A person who practices threat modeling in any form during real situations or actions.">Practitioners</a> should build on each other’s experiences to codify the optimal way to apply threat modeling. At the widest organizational scope, an example could be a <a href="#" tabindex="26" class="footnote" title="An organically cohesive collective of people; usually a mix of experts, champions, curious minds and aficionados.">community</a> of practice.</p>
+	  </div>
+	</div>
+</div>
+
 
 </div>
 </section>
@@ -292,7 +554,7 @@
 	<p class="printonly">You can always find the current version of this capabilities at <a href="https://www.threatmodelingmanifesto.org/capabilities/" target="_blank">https://www.threatmodelingmanifesto.org/capabilities/</a>.</p>
 	
 	<p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</p>
-		
+
 	<h3 id="authors">Authors</h3>
 	<p>The working group of the Threat Modeling Capabilities consists of individuals with years of experience in threat modeling for security or privacy. We had some new people join the group, and some of the original manifesto team could not continue the journey with us for this project.
 	<ul class="lead">
