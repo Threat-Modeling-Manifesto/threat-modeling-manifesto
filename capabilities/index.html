@@ -81,7 +81,7 @@
 	}
 	
 	.card-header {
-		white-space: nowrap;
+		/*white-space: nowrap;*/
 		text-align: center;
 	}
 
@@ -129,7 +129,7 @@
 
 	@media print {
 		html, body {
-      height:100vh; 
+			height:99%; 
 		}
 		.noprint {
 			display: none;
@@ -215,9 +215,9 @@
         <a class="nav-link" href="#about">About</a>
       </li>
 	</ul>
-	<ul class="navbar-nav">
-	  <li class="nav-item">
-		<a class="nav-link" target="_blank" href="https://www.threatmodelingmanifesto.org/">Threat Modeling Manifesto <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16" style="vertical-align: baseline;">
+	<ul style="overflow: hidden;" class="navbar-nav ">
+	  <li class="nav-item" style="font-size: 0.75em; outline: solid 1px red;">
+		<a class="nav-link" target="_blank" href="https://www.threatmodelingmanifesto.org/"><span class="d-none d-md-inline d-lg-none">Manifesto</span><span class="d-md-none d-lg-inline">Threat Modeling Manifesto</span> <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16" style="vertical-align: baseline;">
   <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
   <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
 </svg></a>
@@ -370,7 +370,7 @@
 	</div>
 	<div class="card mb-3 mr-3 border-info">
 	  <div class="card-body">
-		<h5 class="card-header">System and Threat <br/>Comprehension</h5>
+		<h5 class="card-header">System and Threat Comprehension</h5>
 		<p class="card-text">Analysis, as part of the creation process, is informed by ingesting system architecture. Conclusions are enriched by utilizing outside threat knowledge.</p>
 	  </div>
 	</div>
@@ -400,7 +400,7 @@
 	</div>
 	<div class="card mb-3 mr-3 border-info">
 	  <div class="card-body">
-		<h5 class="card-header">Threat Model <br/>Distribution</h5>
+		<h5 class="card-header">Threat Model Distribution</h5>
 		<p class="card-text">The organization provides a mechanism for sharing and discovering threat models. Access to threat models should be available to relevant stakeholders. Optionally, threat models are shared with other teams, organization-wide, or externally.</p>
 	  </div>
 	</div>
@@ -415,25 +415,25 @@
 	<h3 id="acting" class="mt-5">Acting on threat models</h3>
 	<p>Once a threat model is complete, follow up on the threat model process to address the findings.</p>
 <div class="card-group">
-	<div class="card mb-3 mr-3 border-info">
+	<div class="card mb-3 mr-3 border-primary">
 	  <div class="card-body">
 		<h5 class="card-header">Definition of Done</h5>
 		<p class="card-text">Criteria exist to indicate when threat modeling outputs have met objectives for security and privacy.</p>
 	  </div>
 	</div>
-	<div class="card mb-3 mr-3 border-info">
+	<div class="card mb-3 mr-3 border-primary">
 	  <div class="card-body">
 		<h5 class="card-header">Seamless Alignment</h5>
 		<p class="card-text">Threat modeling <a href="#" tabindex="20" class="footnote" title="Outcomes from threat modeling can include: model(s) such as Data Flow Diagram or Attack Tree with notes or annotations, enumeration of threats and mitigations, results of analysis, action items related to vulnerability or risk management.">outcomes</a> influence the implementation or operational workflows. For example, guiding testing in the SDLC.</p>
 	  </div>
 	</div>
-	<div class="card mb-3 mr-3 border-info">
+	<div class="card mb-3 mr-3 border-primary">
 	  <div class="card-body">
 		<h5 class="card-header">Baseline Improvement</h5>
 		<p class="card-text">The organization uses metrics to identify ways to enhance outcomes in the next round.</p>
 	  </div>
 	</div>
-	<div class="card mb-3 mr-3 border-info">
+	<div class="card mb-3 mr-3 border-primary">
 	  <div class="card-body">
 		<h5 class="card-header">Risk Management</h5>
 		<p class="card-text">Teams use threat modeling to understand and appropriately quantify risk. The organization uses threat modeling to inform and adapt its risk profile. Some organizations have separate risk management processes that can potentially be informed by threat modeling.</p>
@@ -479,21 +479,21 @@
 	<h3 id="measurement" class="mt-5">Measurement</h3>
 	<p>Metrics help determine if threat modeling is effective and meets organizational objectives. Some example indicators might be the effort needed in performing an activity and changes to security and privacy posture.</p>
 <div class="card-group">
-	<div class="card mb-3 mr-3 border-info">
+	<div class="card mb-3 mr-3 border-primary">
 	  <div class="card-body">
 		<h5 class="card-header">Value Assessment</h5>
 		<p class="card-text">Return on investment compares the effort put into threat modeling against its effectiveness. This valuation can be used to show improvement and consider changes before you move forward.</p>
 	  </div>
 	</div>
-	<div class="card mb-3 mr-3 border-info">
+	<div class="card mb-3 mr-3 border-primary">
 	  <div class="card-body">
 		<h5 class="card-header">Status Tracking</h5>
 		<p class="card-text">Dashboards and metrics are used to show the impact of outcomes and invite feedback. These metrics may indicate either progress or regression.</p>
 	  </div>
 	</div>
-	<div class="card mb-3 mr-3 border-info">
+	<div class="card mb-3 mr-3 border-primary">
 	  <div class="card-body">
-		<h5 class="card-header">Quantified <br/>Risk Management</h5>
+		<h5 class="card-header">Quantified Risk Management</h5>
 		<p class="card-text">The organization uses threat modeling generated metrics to understand, measure and complement risk management. </p>
 	  </div>
 	</div>
@@ -504,7 +504,7 @@
 <div class="card-group">
 	<div class="card mb-3 mr-3 border-info">
 	  <div class="card-body">
-		<h5 class="card-header">Value-Driven <br/>Management</h5>
+		<h5 class="card-header">Value-Driven Management</h5>
 		<p class="card-text">The threat modeling program is managed, structured, and defined at an organizational level and provides recognizable value.</p>
 	  </div>
 	</div>
@@ -522,13 +522,13 @@
 	</div>
 	<div class="card mb-3 mr-3 border-info">
 	  <div class="card-body">
-		<h5 class="card-header">Metrics-Driven <br/>Management</h5>
+		<h5 class="card-header">Metrics-Driven Management</h5>
 		<p class="card-text">Measurement through reporting informs program governance and the threat modeling exercise itself. The adoption of threat modeling capabilities is monitored, and the program is refined accordingly.</p>
 	  </div>
 	</div>
 	<div class="card mb-3 mr-3 border-info">
 	  <div class="card-body">
-		<h5 class="card-header">Collaborative <br/>Program Development</h5>
+		<h5 class="card-header">Collaborative Program Development</h5>
 		<p class="card-text">The organization internally exchanges knowledge and best practices to nurture a threat model program. <a href="#" tabindex="25" class="footnote" title="A person who practices threat modeling in any form during real situations or actions.">Practitioners</a> should build on each other’s experiences to codify the optimal way to apply threat modeling. At the widest organizational scope, an example could be a <a href="#" tabindex="26" class="footnote" title="An organically cohesive collective of people; usually a mix of experts, champions, curious minds and aficionados.">community</a> of practice.</p>
 	  </div>
 	</div>
