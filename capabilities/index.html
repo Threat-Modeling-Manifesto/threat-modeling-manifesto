@@ -641,7 +641,8 @@ function fillDefTable() {
 		title = title.replace('“','“<i>').replace('”','</i>”');
 		var href = $(this).attr("href");
 		if (!href.startsWith('#')) {
-			title = title.replace('</a>','</a> <small>['+href+']</small>');
+			title = title.replace('<a>', '');
+			title = title.replace('</a>',' <small>[<a href="'+href+'">'+href+'</a>]</small>');
 		}
 		
 		var text = $(this).text();
