@@ -295,7 +295,7 @@
 </div>
 
 	<h3 id="education" class="mt-5">Education</h3>
-	<p>People should learn how to perform threat modeling according to the Values and Principles of the <a href="https://www.threatmodelingmanifesto.org/#values">Threat Modeling Manifesto</a>. “<i>A journey of understanding over a security or privacy snapshot</i>” requires that learning provides ongoing support to participants in threat modeling. <a href="#" tabindex="8" class="footnote" title="We recognize training is effective either in-person or using remote facilitation techniques.">Training</a> is available easily and always for anyone who wants to learn.</p>
+	<p>People should learn how to perform threat modeling according to the Values and Principles of the <a href="https://www.threatmodelingmanifesto.org/#values" target="_blank">Threat Modeling Manifesto</a>. “<i>A journey of understanding over a security or privacy snapshot</i>” requires that learning provides ongoing support to participants in threat modeling. <a href="#" tabindex="8" class="footnote" title="We recognize training is effective either in-person or using remote facilitation techniques.">Training</a> is available easily and always for anyone who wants to learn.</p>
 <div class="card-group">
 	<div class="card mb-3 mr-3 border-primary">
 	  <div class="card-body">
@@ -336,7 +336,7 @@
 </div>
 
 	<h3 id="creating" class="mt-5">Creating threat models</h3>
-	<p>Ideally, threat modeling occurs at the beginning where ideas take form, but may occur at any time during a system’s life cycle. The threat model creation process is<a href="#" tabindex="12" class="footnote" title="An effective threat model creation process has collaborative and engaging meetings. If you can replace it with an email, its effectiveness is questionable.">effective</a> according to the organization.</p>
+	<p>Ideally, threat modeling occurs at the beginning where ideas take form, but may occur at any time during a system’s life cycle. The threat model creation process is <a href="#" tabindex="12" class="footnote" title="An effective threat model creation process has collaborative and engaging meetings. If you can replace it with an email, its effectiveness is questionable.">effective</a> according to the organization.</p>
 <div class="card-group">
 	<div class="card mb-3 mr-3 border-info">
 	  <div class="card-body">
@@ -547,7 +547,7 @@
 	
 	<p>The creation of the capabilities project took place over most of 2023. It consisted of regular meetings, brainstorming sessions, editing reviews, and civil conversations about the best path forward for those creating or enhancing a threat modeling program. The conclusion of all this effort is the document you are reading now.</p>
 	
-	<p>While the group collectively has a few hundred years of threat modeling experience, that doesn't mean we have all the answers. We welcome reviews and feedback from others in the threat modeling community. Please provide us feedback via an issue on GitHub, and we will consider the feedback and decide how best to apply it against the growing list of threat modeling capabilities.</p>
+	<p>While the group collectively has a few hundred years of threat modeling experience, that doesn't mean we have all the answers. We welcome reviews and feedback from others in the threat modeling community. Please provide us feedback via an issue on <a href="https://github.com/Threat-Modeling-Manifesto/threat-modeling-manifesto/issues" target="_blank">GitHub</a>, and we will consider the feedback and decide how best to apply it against the growing list of threat modeling capabilities.</p>
 	
 	<p class="noprint">We provide a <a href="https://github.com/Threat-Modeling-Capabilities/threat-modeling-capabilities/releases/latest/download/threat-modeling-capabilities.pdf">PDF version</a> of the capabilities and this website is also <a href="javascript:window.print();">print friendly</a>.</a></p>
 
@@ -601,9 +601,13 @@ function getHash() {
 	// after all we think about threats... ;-)
 	switch (h) {
 		// this need to be acceptable values for the menu or direct links
-		case '#values':
-		case '#principles':
-		case '#about':
+		case '#strategy':
+		case '#education':
+		case '#creating':
+		case '#acting':
+		case '#communications':
+		case '#measurement':
+		case '#program':
 		case '#authors':
 			return h;
 	}
@@ -636,6 +640,7 @@ $(function() {
 	$(window).on('popstate', function() {
 		var h = getHash();
 		$('.nav-link').removeClass("active");
+		$('.dropdown-item').removeClass("active");
 		if (h) {
 			$("a[href='"+h+"'").addClass('active');
 		}
