@@ -693,7 +693,7 @@ $(function() {
 		return false;
 	});
 
-	$('.nav-link').not(".dropdown-toggle").click( function(e) {
+	$('.nav-link, .dropdown-item').not(".dropdown-toggle").click( function(e) {
 		$('#navbarCollapse').collapse('hide');
 		$('.nav-link').removeClass("active");
 		//$('#toplink').css('color', 'rgba(255,255,255,.75)');
