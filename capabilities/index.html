@@ -129,8 +129,9 @@
 
 	@media print {
 		html, body {
-			height:99%;
+			height: 99%;
 			color: black;
+			margin: 0;
 		}
 		.noprint {
 			display: none;
@@ -149,6 +150,12 @@
 		}
 		@page {
 			size: letter;
+			margin-top: 0.33in;
+			margin-bottom: 0.33in;
+			margin-left: 0.5in;
+			margin-right: 0.5in;
+		}
+		#definitions-table {
 		}
 		@page :first {
 			margin-top: 0;
@@ -163,6 +170,8 @@
 		}
 		#creating {
 			page-break-before: always;
+			margin-top: 0;
+			padding-top: 0;
 		}
 		#acting {
 			page-break-before: always;
