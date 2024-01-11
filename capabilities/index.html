@@ -129,7 +129,8 @@
 
 	@media print {
 		html, body {
-			height:99%; 
+			height:99%;
+			color: black;
 		}
 		.noprint {
 			display: none;
@@ -146,7 +147,9 @@
 			-moz-box-shadow:    none!important;
 			box-shadow:         none!important; 
 		}
-
+		@page {
+			size: letter;
+		}
 		@page :first {
 			margin-top: 0;
 		}
