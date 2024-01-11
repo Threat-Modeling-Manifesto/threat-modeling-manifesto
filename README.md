@@ -1,6 +1,6 @@
 ## Threat Modeling Manifesto Website
 
-This is a repository for the website [www.threatmodelingmanifesto.org](https://www.threatmodelingmanifesto.org).
+This is a repository for the website [www.threatmodelingmanifesto.org](https://www.threatmodelingmanifesto.org) and its subsite [/capabilities/](https://www.threatmodelingmanifesto.org/capabilities/).
 
 ### License
 
@@ -9,11 +9,7 @@ This is a repository for the website [www.threatmodelingmanifesto.org](https://w
 See [LICENSE.txt](LICENSE.txt) for details.
 
 ### Releases
-A PDF document will be provided as a release mechanism. It can be fetched using [this URL](https://github.com/Threat-Modeling-Manifesto/threat-modeling-manifesto/releases/latest/download/threat-modeling-manifesto.pdf).
+PDF documents will be provided as an alternate release mechanism. It can be fetched using [this URL for the Manifesto](https://github.com/Threat-Modeling-Manifesto/threat-modeling-manifesto/releases/latest/download/threat-modeling-manifesto.pdf) and [this URL for the Capabilities](https://github.com/Threat-Modeling-Manifesto/threat-modeling-manifesto/releases/latest/download/threat-modeling-capabilities.pdf).
 
-Please [create a release](https://github.com/Threat-Modeling-Manifesto/threat-modeling-manifesto/releases/new) and upload the print version of the website in `threat-modeling-manifesto.pdf` as a binary attached file. Tag accordingly.
+Please [create a release](https://github.com/Threat-Modeling-Manifesto/threat-modeling-manifesto/releases/new) and upload the print version of the website in `threat-modeling-manifesto.pdf` or `threat-modeling-capabilities.pdf` as a binary attached file. Tag accordingly.
 
-
-### Contact
-
-email @ goes here.com
