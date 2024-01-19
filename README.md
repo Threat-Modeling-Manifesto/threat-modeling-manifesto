@@ -9,7 +9,7 @@ This is a repository for the website [www.threatmodelingmanifesto.org](https://w
 See [LICENSE.txt](LICENSE.txt) for details.
 
 ### Releases
-PDF documents will be provided as an alternate release mechanism. It can be fetched using [this URL for the Manifesto](https://github.com/Threat-Modeling-Manifesto/threat-modeling-manifesto/releases/latest/download/threat-modeling-manifesto.pdf) and [this URL for the Capabilities](https://github.com/Threat-Modeling-Manifesto/threat-modeling-manifesto/releases/latest/download/threat-modeling-capabilities.pdf).
+PDF documents will be provided as an alternate release mechanism. It can be fetched using [this URL for the Manifesto](https://github.com/Threat-Modeling-Manifesto/threat-modeling-manifesto/releases/download/1/threat-modeling-manifesto.pdf) and [this URL for the Capabilities](https://github.com/Threat-Modeling-Manifesto/threat-modeling-manifesto/releases/download/capabilities/threat-modeling-capabilities.pdf).
 
 Please [create a release](https://github.com/Threat-Modeling-Manifesto/threat-modeling-manifesto/releases/new) and upload the print version of the website in `threat-modeling-manifesto.pdf` or `threat-modeling-capabilities.pdf` as a binary attached file. Tag accordingly.
 
